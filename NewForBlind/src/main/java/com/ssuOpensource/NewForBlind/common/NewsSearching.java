@@ -40,10 +40,10 @@ public class NewsSearching {
         Element contentElement = subDoc.getElementById("articleBodyContents");
         String content = contentElement.text(); // 기사내용
 
-        System.out.println(title);
-        System.out.println(articleUrl);
-        System.out.println(content);
-        System.out.println("\n");
+//        System.out.println(title);
+//        System.out.println(articleUrl);
+//        System.out.println(content);
+//        System.out.println("\n");
 
         news.add(new News(title,content));
     }
