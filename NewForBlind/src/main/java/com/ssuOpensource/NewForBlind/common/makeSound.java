@@ -1,12 +1,20 @@
 import com.voicerss.tts.*;
+import java.io.FileOutputStream;
 
-
-public class makeSoundString
+public class makeSound
 {
     private final VoiceProvider tts;
-    makeSoundString(String apiKey) { tts = new VoiceProvider(apiKey); }
+    private final String path;
+    private final String content;
 
-    public static String test = "Abc 123445" +              //테스트용 문자열
+    makeSound(String apiKey, String path, String content) {
+        tts = new VoiceProvider(apiKey);
+        this.path = path;
+        this.content = content;
+    }
+
+    public static String test =         //테스트용 문자열
+            "Abc 123445" +
             "test의 값은 123" +
             "루카스씨 고향은 어디예요? 고향은 어떤 곳이에요?" +
             "한국에 언제 왔어요? 왜 한국에 왔어요?" +
@@ -39,11 +47,10 @@ public class makeSoundString
             "한국어를 잘하고 싶어요. 어떻 게 하면 좋을까요?" +
             "여행을 가고 싶어요. 무엇을 준비하면 좋을까요?";
 
-    public byte[] buildString(String content)
-    {
+    public void makeTTS() {
         VoiceParameters params = new VoiceParameters(content, Languages.Korean);
-        params.setCodec(AudioCodec.WAV);                                        //다른 코덱은 다른 인코딩 방식 사용해야함
-        params.setFormat(AudioFormat.Format_8KHZ.AF_8khz_16bit_stereo);         //음질 올리면 용량 올라감
+        params.setCodec(AudioCodec.MP3);                                        //다른 코덱은 다른 인코딩 방식 사용해야함
+        params.setFormat(AudioFormat.Format_8KHZ.AF_8khz_16bit_mono);         //음질 올리면 용량 올라감
         params.setBase64(false);
         params.setSSML(false);
         params.setRate(1);          //낮추면 느려짐
@@ -54,9 +61,19 @@ public class makeSoundString
         } catch (Exception e) {
             System.out.println("Error: Cannot create tts");
             e.printStackTrace();
-            return null;
+            return;
         }
-        return voice;       //byte 배열 리턴, 이후 용도에 따라 변경
+        writeFile(voice);       //byte 배열 리턴, 이후 용도에 따라 변경
+    }
+
+    private void writeFile(byte[] b) {      //파일에 저장
+        try {
+            FileOutputStream fos = new FileOutputStream(path);
+
+            fos.write(b);
+            fos.flush();
+            fos.close();
+        } catch (Exception e) {}
     }
 }
 
