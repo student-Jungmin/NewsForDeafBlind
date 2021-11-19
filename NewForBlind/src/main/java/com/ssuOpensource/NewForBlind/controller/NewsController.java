@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import com.ssuOpensource.NewForBlind.common.makeSound;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -56,6 +56,8 @@ public class NewsController {
                 System.out.println("-------------------------------------");
                 System.out.println(newsList.get(i).getWritings());
                 System.out.println("----------------------------------------");
+
+
             }
 
         }
