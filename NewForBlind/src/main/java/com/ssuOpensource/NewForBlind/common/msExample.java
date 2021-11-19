@@ -1,3 +1,5 @@
+package com.ssuOpensource.NewForBlind.common;
+
 /**********************************************
  *    voiceRss에서 sdk library 사용해야 작동     *
  **********************************************/

@@ -1,6 +1,5 @@
 package com.ssuOpensource.NewForBlind.controller;
 
-import com.ssuOpensource.NewForBlind.common.HtoB;
 import com.ssuOpensource.NewForBlind.common.NewsSearching;
 import com.ssuOpensource.NewForBlind.domain.News;
 import org.springframework.stereotype.Controller;
@@ -29,13 +28,13 @@ public class NewsController {
 
         // 임시 //
 
-        System.out.println("여기부터 ");
-        HtoB htoB = new HtoB();
-
-//        Queue<Integer[]> test = htoB.H2B("안녕하세요 ");
-//        htoB.showQueue(test);
-
-        System.out.println("여기까지");
+//        System.out.println("여기부터 ");
+//        HtoB htoB = new HtoB();
+//
+////        Queue<Integer[]> test = htoB.H2B("안녕하세요 ");
+////        htoB.showQueue(test);
+//
+//        System.out.println("여기까지");
 
         // 끝 ..
 
@@ -45,13 +44,13 @@ public class NewsController {
 
             for(int i=0; i<10; i++){
 
-                Queue<Integer[]> jumjatopic = htoB.H2B(newsList.get(i).getTopic());
-                htoB.showQueue(jumjatopic);
-
-                System.out.println("-------------------------");
-                Queue<Integer[]> jumjawritings = htoB.H2B(newsList.get(i).getWritings());
-                htoB.showQueue(jumjawritings);
-                System.out.println("---------------------------");
+//                Queue<Integer[]> jumjatopic = htoB.H2B(newsList.get(i).getTopic());
+//                htoB.showQueue(jumjatopic);
+//
+//                System.out.println("-------------------------");
+//                Queue<Integer[]> jumjawritings = htoB.H2B(newsList.get(i).getWritings());
+//                htoB.showQueue(jumjawritings);
+//                System.out.println("---------------------------");
 
                 System.out.println(newsList.get(i).getTopic());
                 System.out.println("-------------------------------------");
