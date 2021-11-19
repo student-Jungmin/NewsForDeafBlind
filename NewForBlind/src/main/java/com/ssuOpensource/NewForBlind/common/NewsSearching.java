@@ -23,13 +23,13 @@ public class NewsSearching {
     Elements photoElements = element.getElementsByAttributeValue("class", "photo");
 
         //for(int i =0; i< photoElements.size(); i++)
-        for(int i =0; i< 1; i++){
+        for(int i =0; i< 10; i++){
         Element articleElement = photoElements.get(i);
         Elements aElements = articleElement.select("a");
         Element aElement = aElements.get(0);
 
         String articleUrl = aElements.attr("href"); // 기사링크
-
+        System.out.println(articleUrl);
         Element imgElement = aElement.select("img").get(0);
 
 //             String imgUrl = imgElement.attr("src"); // 사진링크

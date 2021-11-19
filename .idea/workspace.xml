@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9d5e9838-4730-4b75-8891-54d656d3b9c6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/NewsSearching.java" beforeDir="false" afterPath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/NewsSearching.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/controller/NewsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/controller/NewsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/policy.mp3" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="218VUvjM8f8ky36BJV587QcyoON" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d5e9838-4730-4b75-8891-54d656d3b9c6" name="Default Changelist" comment="" />
+      <created>1637322726369</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637322726369</updated>
+      <workItem from="1637322728475" duration="5000" />
+    </task>
+    <servers />
+  </component>
+</project>
