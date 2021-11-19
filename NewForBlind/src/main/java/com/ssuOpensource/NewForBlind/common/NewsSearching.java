@@ -1,5 +1,5 @@
 package com.ssuOpensource.NewForBlind.common;
-import com.ssuOpensource.NewForBlind.domain.News;
+import com.ssuOpensource.NewForBlind.domain.*;
 import org.jsoup.*;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -23,7 +23,7 @@ public class NewsSearching {
     Elements photoElements = element.getElementsByAttributeValue("class", "photo");
 
         //for(int i =0; i< photoElements.size(); i++)
-        for(int i =0; i< 10; i++){
+        for(int i =0; i< 1; i++){
         Element articleElement = photoElements.get(i);
         Elements aElements = articleElement.select("a");
         Element aElement = aElements.get(0);
