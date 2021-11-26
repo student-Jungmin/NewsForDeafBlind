@@ -101,7 +101,7 @@ public class NewsController {
     }
 
     // 보여 주기 위한 함수. 15초에 한 번 씩 뉴스 음성 파일을 바꿔 줌
-//    @Scheduled(cron = "*/15 * * * * *")
+    @Scheduled(cron = "*/15 * * * * *")
     public String worldNews(){
         System.out.println("크롤링 시작");
         String category = "section_world";
