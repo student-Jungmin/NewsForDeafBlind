@@ -59,8 +59,8 @@ export default {
 
   update() {
     this.currentAudio = this.audioData[this.currentPlaying];
-    this.title.innerText = this.currentAudio.title;
-    this.artist.innerText = this.currentAudio.artist;
+    //this.title.innerText = this.currentAudio.title;
+    //this.artist.innerText = this.currentAudio.artist;
     elements.createAudioElement.call(this, path(this.currentAudio.file));
 
     this.audio.onloadeddata = () => {
