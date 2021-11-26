@@ -8,31 +8,46 @@
     <link rel="stylesheet" type="text/css" href="carousel.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
+    <script type="text/javascript" src="player.js"></script>
+    <script type="module" src="index.js"></script>
     <script>
         $(document).ready(function() {
             //첫 번째 버튼 이벤트
             $("#economy").on("click", function() {
+                previousLimit = 0;
+                nextLimit = 4;
+                currentPlaying = previousLimit;
                 $("p").remove("#specific-article-name");
-                let bodyHtml = "<p id=\"specific-article-name\">경제</p>";
-                $("#article-name").append(bodyHtml);
-            });
-            $("#social").on("click", function() {
-                $("p").remove("#specific-article-name");
-                let bodyHtml = "<p id=\"specific-article-name\">사회</p>";
-                $("#article-name").append(bodyHtml);
-            });
-            $("#international").on("click", function() {
-                $("p").remove("#specific-article-name");
-                let bodyHtml = "<p id=\"specific-article-name\">세계</p>";
+                let bodyHtml = "<p id=\"specific-article-name\">정치"+ (currentPlaying % 5 + 1) + "</p>";
                 $("#article-name").append(bodyHtml);
             });
             $("#politic").on("click", function() {
+                previousLimit = 5;
+                nextLimit = 9;
+                currentPlaying = previousLimit;
                 $("p").remove("#specific-article-name");
-                let bodyHtml = "<p id=\"specific-article-name\">정치</p>";
+                let bodyHtml = "<p id=\"specific-article-name\">정치"+ (currentPlaying % 5 + 1) + "</p>";
+                $("#article-name").append(bodyHtml);
+            });
+            $("#social").on("click", function() {
+                previousLimit = 10;
+                nextLimit = 14;
+                currentPlaying = previousLimit;
+                $("p").remove("#specific-article-name");
+                let bodyHtml = "<p id=\"specific-article-name\">사회"+ (currentPlaying % 5 + 1) + "</p>";
+                $("#article-name").append(bodyHtml);
+            });
+            $("#international").on("click", function() {
+                previousLimit = 15;
+                nextLimit = 19;
+                currentPlaying = previousLimit;
+                $("p").remove("#specific-article-name");
+                let bodyHtml = "<p id=\"specific-article-name\">세계"+ (currentPlaying % 5 + 1) + "</p>";
                 $("#article-name").append(bodyHtml);
             });
         });
     </script>
+
 </head>
 <body>
     <header>
@@ -72,28 +87,36 @@
                     <div class="range-field">
                         <input type="range" min="0" max="0" id="seekbar" step="1"/>
                     </div>
-                    <h3 class="article-name" id="article-name"></h3>
+                    <h3 class="article-name" id="article-name">
+                        <p id="specific-article-name">경제1</p>
+                    </h3>
                     <div class="duration">
                         <div id="current-duration">00:00</div>
                         <div id="total-duration">00:00</div>
                     </div>
                 </div>
                 <div class="second-row-of-player">
-                    <div class="control-button" id="btn_previous">
+                    <!-- <div class="control-button" id="btn_previous">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
                         </svg>
+                    </div> -->
+                    <div class="control-button" id="btn_previous">
+                        <i>play_arrow</i>
                     </div>
                     <div class="control-button" id="play-pause">
-                        <i id="play-pause">play_arrow</i>
+                        <i>play_arrow</i>
                     </div>
                     <div class="control-button" id="btn_next">
+                        <i>play_arrow</i>
+                    </div>
+                    <!-- <div class="control-button" id="btn_next">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
                         </svg>
-                    </div>
+                    </div> -->
                     <div>
-                        <a href="#">
+                        <a>
                             <i class="material-icons" id="mute">volume_up</i>
                         </a>
                     </div>
@@ -114,7 +137,7 @@
             <img class="instagram link" src="instagram.PNG" width="50px" height="50px"/>
         </div>
     </footer>
-    <script type="module" src="index.js"/>
+    
 </body>
 
 </html>

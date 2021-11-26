@@ -6,6 +6,8 @@ export default {
   audioData: audios,
   currentAudio: {},
   currentPlaying: 0,
+  previousLimit: 0,
+  nextLimit: 4,
   isPlaying: false,
   start() {
     elements.get.call(this);
@@ -13,6 +15,7 @@ export default {
   },
 
   play() {
+    window.alert(this.currentPlaying);
     this.isPlaying = true;
     this.audio.play();
     this.playPause.innerText = "pause";
@@ -38,13 +41,17 @@ export default {
   },
 
   next() {
+    this.pause();
     this.currentPlaying++;
+    if(this.currentPlaying > this.nextLimit) this.currentPlaying = this.nextLimit; 
     this.update();
     this.play();
   },
 
   previous() {
+    this.pause();
     this.currentPlaying--;
+    if(this.currentPlaying < this.previousLimit) this.currentPlaying = this.previousLimit; 
     this.update();
     this.play();
   },
