@@ -22,9 +22,8 @@ public class NewsController {
         return "index";
     }
 
-//    @Scheduled(cron = "0 0/59 * * *")
-    @GetMapping("/politics")
-    public String policyNews(Model model){
+    @Scheduled(cron = "0 0/59 * * * *")
+    public String policyNews(){
 
         String category = "section_politics";
         try{
@@ -49,9 +48,8 @@ public class NewsController {
         return "index";
     }
 
-//    @Scheduled(cron = "0 0/59 * * *")
-    @GetMapping("/economics")
-    public String economicNews(Model model){
+    @Scheduled(cron = "0 0/59 * * * *")
+    public String economicNews(){
 
         String category = "section_economy";
         try{
@@ -76,8 +74,8 @@ public class NewsController {
         return "index";
     }
 
-    @GetMapping("/social")
-    public String socialNews(Model model){
+    @Scheduled(cron = "0 0/59 * * * *")
+    public String socialNews(){
 
         String category = "section_society";
         try{
@@ -102,9 +100,10 @@ public class NewsController {
         return "index";
     }
 
-//    @Scheduled(cron = "*/30*****")
-    public String worldNews(Model model){
-        System.out.println("111");
+    // 보여 주기 위한 함수. 15초에 한 번 씩 뉴스 음성 파일을 바꿔 줌
+    @Scheduled(cron = "*/15 * * * * *")
+    public String worldNews(){
+        System.out.println("크롤링 시작");
         String category = "section_world";
         try{
             LinkedList<News> newsList = NewsSearching.newsSearch2(category);
@@ -126,7 +125,7 @@ public class NewsController {
 
             return "index";
         }
+        System.out.println("크롤링 끝");
         return "index";
     }
-
 }

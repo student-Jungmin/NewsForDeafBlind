@@ -72,10 +72,13 @@ public class NewsSearching {
             Element contentElement = subDoc.getElementById("articleBodyContents");
             String content = contentElement.text(); // 기사내용
 
-
+            System.out.println(articleTitle);
+            System.out.println(articleUrl);
+            System.out.println(content);
             news.add(new News(articleTitle,content));
         }
         return news;
     }
+
 }
 
