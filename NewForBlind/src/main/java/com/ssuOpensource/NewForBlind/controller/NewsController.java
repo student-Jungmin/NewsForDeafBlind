@@ -34,10 +34,8 @@ public class NewsController {
 
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
-                System.out.println(voiceNewsTopicWritings);
 
                 String path = "src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/policy/policy" + i + ".mp3";
-                System.out.println(path);
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
@@ -63,10 +61,8 @@ public class NewsController {
 
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
-                System.out.println(voiceNewsTopicWritings);
 
                 String path = "src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/economy/economy" + i + ".mp3";
-                System.out.println(path);
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
@@ -91,10 +87,8 @@ public class NewsController {
 
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
-                System.out.println(voiceNewsTopicWritings);
 
                 String path = "src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/social/social" + i + ".mp3";
-                System.out.println(path);
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
@@ -108,7 +102,7 @@ public class NewsController {
         return "index";
     }
 
-    @Scheduled(cron = "*/30*****")
+//    @Scheduled(cron = "*/30*****")
     public String worldNews(Model model){
         System.out.println("111");
         String category = "section_world";
@@ -119,10 +113,9 @@ public class NewsController {
 
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
-                System.out.println(voiceNewsTopicWritings);
 
                 String path = "src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world" + i + ".mp3";
-                System.out.println(path);
+
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
@@ -135,4 +128,5 @@ public class NewsController {
         }
         return "index";
     }
+
 }

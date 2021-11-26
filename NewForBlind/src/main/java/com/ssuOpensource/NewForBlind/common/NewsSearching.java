@@ -4,6 +4,7 @@ import org.jsoup.*;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -67,21 +68,14 @@ public class NewsSearching {
             String[] split = s.split("\"");
             String articleUrl = split[1].replace("amp;", "");
 
-            System.out.println("-----------------");
-
-            System.out.println(articleTitle);
-            System.out.println(articleUrl);
-
             Document subDoc = Jsoup.connect(articleUrl).get();
             Element contentElement = subDoc.getElementById("articleBodyContents");
             String content = contentElement.text(); // 기사내용
 
-            System.out.println(content);
 
             news.add(new News(articleTitle,content));
         }
         return news;
-
     }
 }
 
