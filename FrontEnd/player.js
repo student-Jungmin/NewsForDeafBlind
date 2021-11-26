@@ -39,10 +39,16 @@ export default {
 
   next() {
     this.currentPlaying++;
-    if (this.currentPlaying == this.audioData.length) this.restart();
     this.update();
     this.play();
   },
+
+  previous() {
+    this.currentPlaying--;
+    this.update();
+    this.play();
+  },
+
 
   setVolume(value) {
     this.audio.volume = value / 100;

@@ -3,7 +3,9 @@ import { secondsToMinutes } from "./utils.js";
 export default {
   get() {
     this.title = document.querySelector(".card-content h5");
+    this.btn_previous = document.querySelector("#btn_previous");
     this.playPause = document.querySelector("#play-pause");
+    this.btn_next = document.querySelector("#btn_next");
     this.mute = document.querySelector("#mute");
     this.volume = document.querySelector("#vol-control");
     this.seekbar = document.querySelector("#seekbar");
@@ -14,7 +16,8 @@ export default {
     this.audio = new Audio(audio);
   },
   actions() {
-    this.audio.onended = () => this.next();
+    this.btn_next.onClick = () => this.next();
+    this.btn_previous.onClick = () => this.previous();
     this.audio.ontimeupdate = () => this.timeUpdate();
     this.playPause.onclick = () => this.togglePlayPause();
     this.mute.onclick = () => this.toggleMute();
