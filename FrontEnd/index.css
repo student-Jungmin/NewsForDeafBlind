@@ -207,3 +207,11 @@ input[type=range]::-webkit-slider-thumb {
 .link {
     margin: 10px;
 }
+
+.main_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    font-size: 40px;
+    padding: 5%;
+}
