@@ -11,6 +11,12 @@ export default {
     this.seekbar = document.querySelector("#seekbar");
     this.currentDuration = document.querySelector("#current-duration");
     this.totalDuration = document.querySelector("#total-duration");
+
+    this.btn_select_economy = document.querySelector("#economy");
+    this.btn_select_policy = document.querySelector("#politic");
+    this.btn_select_social = document.querySelector("#social");
+    this.btn_select_international = document.querySelector("#international");
+    this.subject = document.querySelector("#specific-subject-name");
   },
   createAudioElement(audio) {
     this.audio = new Audio(audio);
@@ -27,5 +33,10 @@ export default {
     this.seekbar.onchange = () => this.setSeek(this.seekbar.value);
     this.seekbar.max = this.audio.duration;
     this.totalDuration.innerText = secondsToMinutes(this.audio.duration);
+
+    this.btn_select_economy.onclick = () => this.setSubjectToEconomy();
+    this.btn_select_policy.onclick = () => this.setSubjectToPolicy();
+    this.btn_select_social.onclick = () => this.setSubjectToSocial();
+    this.btn_select_international.onclick = () => this.setSubjectToInternational();
   }
 };
