@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="carousel.css">
+    <link rel="stylesheet" type="text/css" href="braile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="module" src="player.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="braile.js"></script>
+</head>
+<body>
+    <header>
+        <div class="top-navigator">
+            <a class="navbar-brand" href="index.html">
+                <img class="logo" src="logo.PNG">
+            </a>
+            <div class="list">
+                <div class="nav-element"><a href="index.html" style="color: yellow; text-decoration: none;">본문</a></div>
+                <div class="nav-element"><a href="introduce.html" style="color: yellow; text-decoration: none;">소개</a></div>
+                <div class="nav-element"><a href="manual.html" style="color: yellow; text-decoration: none;">이용방법</a></div>
+                <div class="nav-element"><a href="braile.html" style="color: yellow; text-decoration: none;">점자</a></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="btn_collapse_introduction">
+            <h2>+ 서비스 소개</h2>
+        </div>
+        <div id="introduction_to_braile">
+            <img id="logo_for_braile" src="logo_2.png">
+            <p id="text_for_braile">
+                세상만짐은 시각 장애인분들께서 사용하시는 정보 접근 기술의 발전을 위한 실시간 뉴스 점역 데이터 제공 서비스입니다.<br><br>
+                네이버에서 제공하는 실시간 인기 뉴스를 테마(정치, 경제, 세계, 사회)에 따라 크롤링한 뒤,<br><br>
+                저희가 고안한 json 구조(BraileNewsJSON)에 따라 크롤링한 데이터를 점역하여 제공합니다.<br><br>
+                현재 beta 서비스로 간단한 점역 기능을 가지고 있습니다.<br><br>
+                추후에 약어와 이미지에 대한 점자 등을 제공하여<br><br>
+                시각 장애인분들을 위한 서비스를 구현하시는데 유용한 데이터를 제공하고자 합니다.
+            </p>
+        </div>
+        <div class="btn_collapse_introduction" id="btn_collapse_form">
+            <h2>+ BraileNewsJSON 형식</h2>
+        </div>
+        <div id="introduction_to_BraileNewsJSON">
+            <p id="format_of_BraileNewsJSON">
+                BraileNewsJSON의 형식은 아래와 같습니다.<br><br>
+                {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"header": {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"encoding": ""<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "기사 제목"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"topic": "기사 주제"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"date": "기사 발행 일자"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "기사 주소"<br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"crawling-function": "크롤링 프로그램 소스 주소" <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"translation-rules": "번역 규칙 테이블 소스 주소"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"translation-function": "번역 프로그램 소스 주소"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"body": {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"original-version": "원본 - 크롤링 데이터"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"traslated-version": "점자 데이터"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }       
+            </p>
+            <p id="example_of_BraileNewsJSON">
+                BraileNewsJSON의 형식의 예시입니다.<br><br>
+                {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"header": {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"encoding": "UTF-8"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "
+                        MBN
+                        PICK 안내
+                        [MBN 여론조사] 이재명 37.9% vs 윤석열 43.3%…윤 우세..."<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"topic": "Policy"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"date": "2021.12.02"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "https://news.naver.com/main/read.naver?mode=LSD&mid=shm&..."<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"crawling-function": "https://github.com/TwoJJung/NewsForDeafBlind" <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"translation-rules": "https://github.com/TwoJJung/NewsForDeafBlind"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"translation-function": "https://github.com/TwoJJung/NewsForDeafBlind"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"body": {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"original-version": "이재명 더불어민주당 후보라는 응답이 37.9%,..."<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"traslated-version": "0b01010010010010101110111011101101010101..."<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }       
+            </p>
+        </div>
+        <div class="btn_collapse_introduction" id="btn_collapse_data">
+            <h2>+ BraileNewsJSON 데이터</h2>
+        </div>
+        <div class="lists_of_BraileNewsJSON_data" id="introduction_to_data">
+            <ul class="list_of_BraileNewsJSON_data">
+                <li class="BraileNewsJSON_data"><a class="download_link" href="policy-1.json" download="policy-1.json">policy-1.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="policy-2.json" download="policy-2.json">policy-2.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="policy-3.json" download="policy-3.json">policy-3.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="policy-4.json" download="policy-4.json">policy-4.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="policy-5.json" download="policy-5.json">policy-5.json</a></li>
+            </ul>
+            <ul class="list_of_BraileNewsJSON_data">
+                <li class="BraileNewsJSON_data"><a class="download_link" href="economy-1.json" download="economy-1.json">economy-1.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="economy-2.json" download="economy-2.json">economy-2.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="economy-3.json" download="economy-3.json">economy-3.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="economy-4.json" download="economy-4.json">economy-4.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="economy-5.json" download="economy-5.json">economy-5.json</a></li>
+            </ul>
+            <ul class="list_of_BraileNewsJSON_data">
+                <li class="BraileNewsJSON_data"><a class="download_link" href="social-1.json" download="social-1.json">social-1.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="social-2.json" download="social-2.json">social-2.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="social-3.json" download="social-3.json">social-3.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="social-4.json" download="social-4.json">social-4.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="social-5.json" download="social-5.json">social-5.json</a></li>
+            </ul>
+            <ul class="list_of_BraileNewsJSON_data">
+                <li class="BraileNewsJSON_data"><a class="download_link" href="international-1.json" download="international-1.json">international-1.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="international-1.json" download="international-2.json">international-2.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="international-1.json" download="international-3.json">international-3.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="international-1.json" download="international-4.json">international-4.json</a></li>
+                <li class="BraileNewsJSON_data"><a class="download_link" href="international-1.json" download="international-5.json">international-5.json</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="links">
+            <img class="github link" src="github.PNG" width="50px" height="50px"/>
+            <img class="facebook link" src="facebook.PNG" width="50px" height="50px"/>
+            <img class="instagram link" src="instagram.PNG" width="50px" height="50px"/>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
