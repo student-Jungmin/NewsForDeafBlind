@@ -98,7 +98,6 @@ export default {
     this.previousLimit = 0;
     this.nextLimit = 4;
     this.restart();
-    this.play();
 
     document.querySelector("#specific-article-name").innerText = "경제 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
   },
@@ -108,7 +107,6 @@ export default {
     this.previousLimit = 5;
     this.nextLimit = 9;
     this.restart();
-    this.play();
 
     document.querySelector("#specific-article-name").innerText = "정치 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
   },
@@ -118,7 +116,6 @@ export default {
     this.previousLimit = 10;
     this.nextLimit = 14;
     this.restart();
-    this.play();
 
     document.querySelector("#specific-article-name").innerText = "사회 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
   },
@@ -128,7 +125,6 @@ export default {
     this.previousLimit = 15;
     this.nextLimit = 19;
     this.restart();
-    this.play();
 
     document.querySelector("#specific-article-name").innerText = "세계 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
   },

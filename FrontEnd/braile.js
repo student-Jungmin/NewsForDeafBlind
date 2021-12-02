@@ -30,13 +30,13 @@ window.onload = function(){
     };
 
     document.getElementById('btn_collapse_service').onclick =  function(){
-        if(state_data == 0){
+        if(state_service == 0){
             document.getElementById('introduction_to_braile').style.display = "";
-            state_data = 1;
+            state_service = 1;
         }
         else{
-            document.getElementById('introduction_to_braile ').style.display = 'none';
-            state_data = 0;
+            document.getElementById('introduction_to_braile').style.display = 'none';
+            state_service = 0;
         }
     };
 };
