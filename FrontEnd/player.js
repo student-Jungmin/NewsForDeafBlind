@@ -122,4 +122,19 @@ export default {
 
     document.querySelector("#specific-article-name").innerText = "세계 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
   }
+
+};
+
+window.onload = function(){
+  document.getElementById('slow').onclick =  function(){
+      this.audio.playbackRate = 0.5;
+  };
+
+  document.getElementById('normal').onclick =  function(){
+    this.audio.playbackRate = 1;
+  };
+
+  document.getElementById('fast').onclick =  function(){
+      this.audio.playbackRate = 1.2;
+  };
 };

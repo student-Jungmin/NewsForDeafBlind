@@ -17,10 +17,10 @@
                 <img class="logo" src="logo.PNG">
             </a>
             <div class="list">
-                <a class="nav-element" href="index.html">본문</a>
-                <a class="nav-element" href="introduce.html" >소개</a>
-                <a class="nav-element" href="manual.html" >이용방법</a>
-              <a class="nav-element" >점자</a>
+                <div class="nav-element"><a href="index.html" style="color: yellow; text-decoration: none;">본문</a></div>
+                <div class="nav-element"><a href="introduce.html" style="color: yellow; text-decoration: none;">소개</a></div>
+                <div class="nav-element"><a href="manual.html" style="color: yellow; text-decoration: none;">이용방법</a></div>
+                <div class="nav-element"><a href="braile.html" style="color: yellow; text-decoration: none;">점자</a></div>
             </div>
         </div>
     </header>
@@ -29,7 +29,7 @@
         <div class="main_container">
             <div class="item">처음 이용하시는<br> 분들은 <b>이용방법</b>을<br> 참고해주세요<br><a class="item-link" href="manual.html">(바로 가기)</a></div>
 	        <div class="item">사이트 관련<br> 궁금한 점들은<br><b>소개</b>를 확인해주세요<br><a class="item-link" href="introduce.html">(바로 가기)</a></div>
-	        <div class="item">실시간으로 업데이트되는<br> <b>4가지의 세상소리를</b><br>들으세요<br><a class="item-link" href="#article_player">(바로 가기)</a></div>
+	        <div class="item">실시간으로 업데이트되는<br> <b>4가지의 세상소리를</b><br>들어보세요<br><a class="item-link" href="#article_player">(바로 가기)</a></div>
         </div>
 
         <!--기사 읽는 곳-->
@@ -93,9 +93,9 @@
                           1.0
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          <li><a class="dropdown-item" id="slow">0.8</a></li>
+                          <li><a class="dropdown-item" id="normal">1.0</a></li>
+                          <li><a class="dropdown-item" id="fast">1.2</a></li>
                         </ul>
                       </div>
                     </div>
