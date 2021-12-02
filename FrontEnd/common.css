@@ -18,6 +18,8 @@ body {
 }
 
 footer {
+    color: lightgray;
+    text-align: center;
     border: 1px solid var(--font-color);
 }
 
