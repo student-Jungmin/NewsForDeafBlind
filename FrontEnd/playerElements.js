@@ -16,7 +16,6 @@ export default {
     this.btn_select_policy = document.querySelector("#politic");
     this.btn_select_social = document.querySelector("#social");
     this.btn_select_international = document.querySelector("#international");
-    this.subject = document.querySelector("#specific-subject-name");
   },
   createAudioElement(audio) {
     this.audio = new Audio(audio);

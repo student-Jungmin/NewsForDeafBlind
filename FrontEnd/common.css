@@ -16,4 +16,8 @@ body {
     background-color: var(--background-color);
 }
 
+footer {
+    border: 1px solid var(--font-color);
+}
+
 

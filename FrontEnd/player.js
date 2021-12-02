@@ -15,7 +15,6 @@ export default {
   },
 
   play() {
-    window.alert(this.currentPlaying);
     this.isPlaying = true;
     this.audio.play();
     this.playPause.innerText = "pause";
@@ -75,10 +74,10 @@ export default {
     //this.title.innerText = this.currentAudio.title;
     //this.artist.innerText = this.currentAudio.artist;
     
-    if(this.previousLimit == 0) document.querySelector("#specific-article-name").innerText = "경제 "+ (this.currentPlaying % 5 + 1) + "번째 기사";
-    else if(this.previousLimit == 5) document.querySelector("#specific-article-name").innerText = "정치 "+ (this.currentPlaying % 5 + 1) + "번째 기사";
-    else if(this.previousLimit == 10) document.querySelector("#specific-article-name").innerText = "사회 "+ (this.currentPlaying % 5 + 1) + "번째 기사";
-    else if(this.previousLimit == 15) document.querySelector("#specific-article-name").innerText = "세계 "+ (this.currentPlaying % 5 + 1) + "번째 기사";
+    if(this.previousLimit == 0) document.querySelector("#specific-article-name").innerText = "경제 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
+    else if(this.previousLimit == 5) document.querySelector("#specific-article-name").innerText = "정치 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
+    else if(this.previousLimit == 10) document.querySelector("#specific-article-name").innerText = "사회 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
+    else if(this.previousLimit == 15) document.querySelector("#specific-article-name").innerText = "세계 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
 
     elements.createAudioElement.call(this, path(this.currentAudio.file));
 
@@ -88,60 +87,39 @@ export default {
   },
 
   restart() {
-    this.currentPlaying = 0;
+    this.currentPlaying = this.previousLimit;
     this.update();
   },
 
   setSubjectToEconomy() {
     this.previousLimit = 0;
     this.nextLimit = 4;
-    this.currentPlaying = this.previousLimit;
+    this.restart();
 
-    document.querySelector("#specific-article-name").innerText = "경제 "+ (this.currentPlaying % 5 + 1) + "번째 기사";
+    document.querySelector("#specific-article-name").innerText = "경제 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
   },
 
   setSubjectToPolicy() {
     this.previousLimit = 5;
     this.nextLimit = 9;
-    this.currentPlaying = this.previousLimit;
+    this.restart();
 
-    document.querySelector("#specific-article-name").innerText = "정치 "+ (this.currentPlaying % 5 + 1) + "번째 기사";
+    document.querySelector("#specific-article-name").innerText = "정치 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
   },
 
   setSubjectToSocial() {
     this.previousLimit = 10;
     this.nextLimit = 14;
-    this.currentPlaying = this.previousLimit;
+    this.restart();
 
-    document.querySelector("#specific-article-name").innerText = "사회 "+ (this.currentPlaying % 5 + 1) + "번째 기사";
+    document.querySelector("#specific-article-name").innerText = "사회 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
   },
 
   setSubjectToInternational() {
     this.previousLimit = 15;
     this.nextLimit = 19;
-    this.currentPlaying = this.previousLimit;
+    this.restart();
 
-    document.querySelector("#specific-article-name").innerText = "세계 "+ (this.currentPlaying % 5 + 1) + "번째 기사";
+    document.querySelector("#specific-article-name").innerText = "세계 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
   }
 };
-
-
-/* <script>
-    $("#social").on("click", function() {
-        previousLimit = 10;
-        nextLimit = 14;
-        currentPlaying = previousLimit;
-        $("p").remove("#specific-article-name");
-        let bodyHtml = "<p id=\"specific-article-name\">사회 "+ (currentPlaying % 5 + 1) + "번째 기사" + "</p>";
-        $("#article-name").append(bodyHtml);
-    });
-    $("#international").on("click", function() {
-        previousLimit = 15;
-        nextLimit = 19;
-        currentPlaying = previousLimit;
-        $("p").remove("#specific-article-name");
-        let bodyHtml = "<p id=\"specific-article-name\">세계 "+ (currentPlaying % 5 + 1) + "번째 기사" + "</p>";
-        $("#article-name").append(bodyHtml);
-    });
-});
-</script> */
