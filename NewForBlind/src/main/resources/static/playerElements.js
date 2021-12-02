@@ -16,6 +16,13 @@ export default {
     this.btn_select_policy = document.querySelector("#politic");
     this.btn_select_social = document.querySelector("#social");
     this.btn_select_international = document.querySelector("#international");
+
+    this.btn_change_speed = document.querySelector("#dropdownMenuButton1");
+    this.btn_select_speed_050 = document.querySelector("#speed_05");
+    this.btn_select_speed_075 = document.querySelector("#speed_075");
+    this.btn_select_speed_100 = document.querySelector("#speed_10");
+    this.btn_select_speed_125 = document.querySelector("#speed_125");
+    this.btn_select_speed_150 = document.querySelector("#speed_15"); 
   },
   createAudioElement(audio) {
     this.audio = new Audio(audio);
@@ -37,5 +44,11 @@ export default {
     this.btn_select_policy.onclick = () => this.setSubjectToPolicy();
     this.btn_select_social.onclick = () => this.setSubjectToSocial();
     this.btn_select_international.onclick = () => this.setSubjectToInternational();
+
+    this.btn_select_speed_050.onclick = () => this.setSpeed050();
+    this.btn_select_speed_075.onclick = () => this.setSpeed075();
+    this.btn_select_speed_100.onclick = () => this.setSpeed100();
+    this.btn_select_speed_125.onclick = () => this.setSpeed125();
+    this.btn_select_speed_150.onclick = () => this.setSpeed150(); 
   }
 };
