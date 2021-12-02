@@ -17,13 +17,15 @@ export default {
   play() {
     this.isPlaying = true;
     this.audio.play();
-    this.playPause.innerText = "pause";
+    this.playPause.innerText = "멈춤";
+    this.playPause.style = "font-size: 40px;"
   },
 
   pause() {
     this.isPlaying = false;
     this.audio.pause();
-    this.playPause.innerText = "play_arrow";
+    this.playPause.innerText = "재생";
+    this.playPause.style = "font-size: 40px;"
   },
 
   togglePlayPause() {
@@ -92,6 +94,7 @@ export default {
   },
 
   setSubjectToEconomy() {
+    this.pause();
     this.previousLimit = 0;
     this.nextLimit = 4;
     this.restart();
@@ -100,6 +103,7 @@ export default {
   },
 
   setSubjectToPolicy() {
+    this.pause();
     this.previousLimit = 5;
     this.nextLimit = 9;
     this.restart();
@@ -108,6 +112,7 @@ export default {
   },
 
   setSubjectToSocial() {
+    this.pause();
     this.previousLimit = 10;
     this.nextLimit = 14;
     this.restart();
@@ -116,6 +121,7 @@ export default {
   },
 
   setSubjectToInternational() {
+    this.pause();
     this.previousLimit = 15;
     this.nextLimit = 19;
     this.restart();

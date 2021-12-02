@@ -38,7 +38,7 @@ public class NewsSearching {
         String content = contentElement.text(); // 기사내용
 
 
-        news.add(new News(title,content));
+        news.add(new News(title,content,articleUrl));
     }
 
     return news;
@@ -75,7 +75,7 @@ public class NewsSearching {
             System.out.println(articleTitle);
             System.out.println(articleUrl);
             System.out.println(content);
-            news.add(new News(articleTitle,content));
+            news.add(new News(articleTitle,content,articleUrl));
         }
         return news;
     }

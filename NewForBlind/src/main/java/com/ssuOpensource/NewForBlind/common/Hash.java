@@ -1,4 +1,4 @@
-package com.ssuOpensource.NewForBlind.common.HtoB.src;
+package com.ssuOpensource.NewForBlind.common;
 
 import java.util.HashMap;
 public class Hash {
@@ -45,7 +45,7 @@ public class Hash {
         map.put(39, 21);
 
         map.put(40, 0); //받침없음
-        map.put(41, 1); //ㄱ
+        map.put(41, 1);     //ㄱ
         map.put(44, 18);  //ㄴ
         map.put(47, 20);  //ㄷ
         map.put(48, 2);  //ㄹ

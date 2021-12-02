@@ -9,9 +9,10 @@ public class News {
 
     public News(){}
 
-    public News(String topic, String writings){
+    public News(String topic, String writings, String url){
         this.topic = topic;
         this.writings = writings;
+        this.url = url;
     }
 
     private String id;
@@ -19,5 +20,7 @@ public class News {
     private String topic;
 
     private String writings;
+
+    private String url;
 
 }

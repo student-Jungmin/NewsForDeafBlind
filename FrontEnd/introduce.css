@@ -1,0 +1,45 @@
+.table.table-bordered{
+	color: yellow;
+	background-color: #141414;
+	font-size: larger;
+    width: 100%;
+    margin: 0px;
+}
+
+#introduction_to_crew{
+    padding: 50px;
+    border: 1px solid var(--font-color);
+}
+
+/*common css*/
+.btn_collapse_introduction {
+    width: 100%;
+    padding: 10px 50px 10px 50px;
+
+    border: 1px solid var(--font-color);
+}
+
+/*css for introduction to service*/
+#introduction_to_website {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+
+    padding: 50px;
+
+    border: 1px solid var(--font-color) ;
+}
+
+#logo_for_intro {
+    width: 30%;
+    height: 20%;
+    padding-right: 50px;
+
+}
+
+#text_for_website {
+    margin:0;
+    height: 20%;
+}
+

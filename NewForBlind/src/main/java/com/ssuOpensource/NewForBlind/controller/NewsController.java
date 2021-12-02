@@ -1,6 +1,6 @@
 package com.ssuOpensource.NewForBlind.controller;
 
-import com.ssuOpensource.NewForBlind.common.HtoB.src.HtoB;
+import com.ssuOpensource.NewForBlind.common.HtoB;
 import com.ssuOpensource.NewForBlind.common.NewsSearching;
 import com.ssuOpensource.NewForBlind.domain.News;
 import org.json.simple.JSONObject;
@@ -10,8 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.ssuOpensource.NewForBlind.common.makeSound;
+
+import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
+import java.util.Locale;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 @Controller
 @RequestMapping("blindnews")
@@ -23,23 +31,67 @@ public class NewsController {
         return "index.html";
     }
 
+    Date date = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH", Locale.KOREA);
+    String today = sdf.format(date);
+
+    private static final String crawling_function = "https://github.com/TwoJJung/NewsForDeafBlind/blob/master/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/NewsSearching.java";
+    private static final String translate_rules = "https://github.com/TwoJJung/NewsForDeafBlind/blob/master/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/Hash.java";
+    private static final String translate_function = "https://github.com/TwoJJung/NewsForDeafBlind/blob/master/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/HtoB.java";
 
     @Scheduled(cron = "0 0/59 * * * *")
     public String policyNews(){
-
         String category = "section_politics";
         try{
             LinkedList<News> newsList = NewsSearching.newsSearch2(category);
 
             for(int i=0; i<5; i++) {
-
+                /*
+                    encoding
+                    title
+                    topic
+                    date
+                    url
+                    crawling-function
+                    translate-rules
+                    translate-function
+                    ===
+                    original-version
+                    translated-version
+                    */
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
+                String NewsWritings = newsList.get(i).getWritings();
+                String url = newsList.get(i).getUrl();
+                HtoB htoB = new HtoB();
+                String jumjaNewsWritings = htoB.H2B(NewsWritings);
+
+                JSONObject header = new JSONObject();
+                JSONObject body = new JSONObject();
+                JSONObject braileNewsJSON = new JSONObject();
+
+                header.put("encoding", "UTF-8");
+                header.put("title", voiceNewsTopic);
+                header.put("topic", "policy");
+                header.put("date", today);
+                header.put("url", url);
+                header.put("crawling-function", crawling_function);
+                header.put("translate-rules", translate_rules);
+                header.put("translate-function", translate_function);
+
+                body.put("original-version", NewsWritings);
+                body.put("translated-version", jumjaNewsWritings);
+
+                braileNewsJSON.put("header", header);
+                braileNewsJSON.put("body", body);
 
                 String path = "src/main/resources/static/policy/policy" + i + ".mp3";
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
+
+
+                FileWriter jsonfile = new FileWriter()
             }
         }
         catch(Exception e){
