@@ -2,6 +2,13 @@
 	color: yellow;
 	background-color: #141414;
 	font-size: larger;
+    width: 100%;
+    margin: 0px;
+}
+
+#introduction_to_crew{
+    padding: 50px;
+    border: 1px solid var(--font-color);
 }
 
 /*common css*/
