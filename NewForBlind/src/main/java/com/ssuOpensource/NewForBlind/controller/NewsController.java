@@ -241,8 +241,9 @@ public class NewsController {
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
                 HtoB htoB = new HtoB();
-                String jumjaNewsWritings = htoB.H2B(NewsWritings);
-
+                System.out.println(NewsWritings);
+                // 여기 다음 에러임
+                String jumjaNewsWritings = htoB.H2B("안녕하세요");
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
                 JSONObject braileNewsJSON = new JSONObject();
@@ -262,14 +263,14 @@ public class NewsController {
                 braileNewsJSON.put("header", header);
                 braileNewsJSON.put("body", body);
 
-
                 String path = "src/main/resources/static/world/world" + i + ".mp3";
 
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
 
-                FileWriter jsonfile = new FileWriter("src/main/resources/static/world_json/world-" + i);
+                String jsonPath = "src/main/resources/static/world_json/world-" + i;
+                FileWriter jsonfile = new FileWriter(jsonPath);
                 jsonfile.write(braileNewsJSON.toJSONString());
                 jsonfile.flush();
                 jsonfile.close();
