@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d5e9838-4730-4b75-8891-54d656d3b9c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/NewsSearching.java" beforeDir="false" afterPath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/NewsSearching.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/controller/NewsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/controller/NewsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/policy.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world0.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world0.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world1.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world1.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world2.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world2.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world3.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world3.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world4.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world4.mp3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="218VUvjM8f8ky36BJV587QcyoON" />
   <component name="ProjectViewState">
@@ -21,7 +27,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9d5e9838-4730-4b75-8891-54d656d3b9c6" name="Default Changelist" comment="" />
@@ -30,7 +41,11 @@
       <option name="presentableId" value="Default" />
       <updated>1637322726369</updated>
       <workItem from="1637322728475" duration="5000" />
+      <workItem from="1638435317104" duration="2159000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
