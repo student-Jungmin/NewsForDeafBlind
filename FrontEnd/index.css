@@ -245,3 +245,22 @@ input[type=range]::-webkit-slider-thumb {
     border:none;
     height: 150px;
 }
+
+.button-text {
+    font-size: 40px;
+}
+
+.control-button {
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    justify-content: center;
+}
+
+#dropdownMenuButton1 {
+    font-size: 40px;
+}
+
+.dropdown-item {
+    font-size: 30px;
+}

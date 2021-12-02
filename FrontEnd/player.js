@@ -17,13 +17,15 @@ export default {
   play() {
     this.isPlaying = true;
     this.audio.play();
-    this.playPause.innerText = "pause";
+    this.playPause.innerText = "멈춤";
+    this.playPause.style = "font-size: 40px;"
   },
 
   pause() {
     this.isPlaying = false;
     this.audio.pause();
-    this.playPause.innerText = "play_arrow";
+    this.playPause.innerText = "재생";
+    this.playPause.style = "font-size: 40px;"
   },
 
   togglePlayPause() {
