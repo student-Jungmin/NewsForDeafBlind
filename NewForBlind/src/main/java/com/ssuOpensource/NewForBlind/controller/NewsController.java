@@ -1,14 +1,15 @@
 package com.ssuOpensource.NewForBlind.controller;
 
+import com.ssuOpensource.NewForBlind.common.HtoB.src.HtoB;
 import com.ssuOpensource.NewForBlind.common.NewsSearching;
 import com.ssuOpensource.NewForBlind.domain.News;
+import org.json.simple.JSONObject;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.ssuOpensource.NewForBlind.common.makeSound;
-
 import java.io.IOException;
 import java.util.LinkedList;
 
@@ -21,6 +22,7 @@ public class NewsController {
     public String home(){
         return "index.html";
     }
+
 
     @Scheduled(cron = "0 0/59 * * * *")
     public String policyNews(){
@@ -90,6 +92,8 @@ public class NewsController {
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
+
+
             }
         }
         catch(Exception e){
@@ -101,8 +105,11 @@ public class NewsController {
     }
 
     // 보여 주기 위한 함수. 15초에 한 번 씩 뉴스 음성 파일을 바꿔 줌
-    @Scheduled(cron = "*/30 * * * * *")
+//    @Scheduled(cron = "*/30 * * * * *")
     public String worldNews(){
+
+        JSONObject jsonfile = new JSONObject();
+
         System.out.println("크롤링 시작");
         String category = "section_world";
         try{
@@ -118,6 +125,8 @@ public class NewsController {
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
+
+
             }
         }
         catch(Exception e){
@@ -125,6 +134,7 @@ public class NewsController {
 
             return "index";
         }
+
         System.out.println("크롤링 끝");
         return "index";
     }

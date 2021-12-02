@@ -28,6 +28,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation files("libs/voicerss_tts.jar")
+	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 }
 
 test {
