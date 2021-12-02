@@ -1,9 +1,6 @@
-package com.ssuOpensource.NewForBlind.common.HtoB.src;
+package com.ssuOpensource.NewForBlind.common;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Queue;
 import java.util.LinkedList;
 import java.lang.String;
@@ -14,34 +11,28 @@ import java.lang.String;
 
 //HtoB 객체 생성후 H2B(string) 으로 결과확인가능
 public class HtoB {
-    String outfile;
+
     String input;
 
-    public HtoB(String outfile, String input){
-        this.outfile = outfile;
-        this.input = input;
+    public HtoB(){
     }
 
 
-    public void H2B()       //이후 입력 파일로 인자를 변경할 예정
+    public String H2B(String input)       //이후 입력 파일로 인자를 변경할 예정
     {
-        try {
+        StringBuffer output = new StringBuffer("");
+        this.input = input;
 
-            FileWriter fw = new FileWriter(outfile);
-            BufferedWriter bw = new BufferedWriter(fw);
+        HashMap<Integer, Integer> hash = new Hash().makeHash();
+        Queue<Integer[]> q = new LinkedList<>();   //자모 분리한 한글을 큐에 저장함
 
-            HashMap<Integer, Integer> hash = new Hash().makeHash();
-            Queue<Integer[]> q = new LinkedList<>();   //자모 분리한 한글을 큐에 저장함
+        for (int i = 0; i < input.length(); i++)
+            q.offer(separation(input.charAt(i)));
 
-            for (int i = 0; i < input.length(); i++)
-                q.offer(separation(input.charAt(i)));
+        makeJJ(q, hash, output);
 
-            makeJJ(q, hash, bw);
 
-            bw.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return output.toString();
     }
 
     int word_past;
@@ -80,12 +71,15 @@ public class HtoB {
         return arr;
     }
 
-    private void makeJJ(Queue<Integer[]> q, HashMap<Integer, Integer> hash, BufferedWriter bw) throws Exception {
+    private void makeJJ(Queue<Integer[]> q, HashMap<Integer, Integer> hash, StringBuffer output) {
         Integer[] value = q.poll();
+        int j = 0;
 
         while (value != null) {
-            for(int i = 0; i < 3; i++)
-                bw.write(0x2800 + hash.get(value[i]));
+            for(int i = 0; i < 3; i++) {
+                j = 0x2800 + hash.get(value[i]);
+                output.append((char) j);
+            }
             value = q.poll();
         }
     }
