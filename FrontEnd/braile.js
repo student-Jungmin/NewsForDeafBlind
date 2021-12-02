@@ -3,6 +3,7 @@ window.onload = function(){
     let state_form = 0;
     let state_data = 0;
     let state_service = 0;
+
     document.getElementById('introduction_to_BraileNewsJSON').style.display = 'none';
     document.getElementById('introduction_to_data').style.display = 'none';
 
