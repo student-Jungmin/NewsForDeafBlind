@@ -121,20 +121,30 @@ export default {
     this.restart();
 
     document.querySelector("#specific-article-name").innerText = "세계 관련 "+ (this.currentPlaying % 5 + 1) + "번째 세상소리";
+  },
+
+  setSpeed050() {
+    this.audio.playbackRate = 0.5;
+    this.btn_change_speed.innerText = "0.5";
+  },
+
+  setSpeed075() {
+    this.audio.playbackRate = 0.75;
+    this.btn_change_speed.innerText = "0.75";
+  },
+
+  setSpeed100() {
+    this.audio.playbackRate = 1.0;
+    this.btn_change_speed.innerText = "1.0";
+  },
+
+  setSpeed125() {
+    this.audio.playbackRate = 1.25;
+    this.btn_change_speed.innerText = "1.25";
+  },
+
+  setSpeed150() {
+    this.audio.playbackRate = 1.5;
+    this.btn_change_speed.innerText = "1.5";
   }
-
-};
-
-window.onload = function(){
-  document.getElementById('slow').onclick =  function(){
-      this.audio.playbackRate = 0.5;
-  };
-
-  document.getElementById('normal').onclick =  function(){
-    this.audio.playbackRate = 1;
-  };
-
-  document.getElementById('fast').onclick =  function(){
-      this.audio.playbackRate = 1.2;
-  };
 };
