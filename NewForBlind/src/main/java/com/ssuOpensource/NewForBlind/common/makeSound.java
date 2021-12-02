@@ -5,9 +5,9 @@ import java.io.FileOutputStream;
 
 public class makeSound
 {
-    public final VoiceProvider tts;
-    public final String path;
-    public final String content;
+    private final VoiceProvider tts;
+    private final String path;
+    private final String content;
 
     public makeSound(String apiKey, String path, String content) {
         tts = new VoiceProvider(apiKey);
@@ -68,7 +68,7 @@ public class makeSound
         writeFile(voice);       //byte 배열 리턴, 이후 용도에 따라 변경
     }
 
-    public void writeFile(byte[] b) {      //파일에 저장
+    private void writeFile(byte[] b) {      //파일에 저장
         try {
             FileOutputStream fos = new FileOutputStream(path);
 

@@ -19,7 +19,7 @@ public class NewsController {
 
     @GetMapping("home")
     public String home(){
-        return "index";
+        return "index.html";
     }
 
     @Scheduled(cron = "0 0/59 * * * *")
@@ -34,7 +34,7 @@ public class NewsController {
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
 
-                String path = "src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/policy/policy" + i + ".mp3";
+                String path = "src/main/resources/static/policy/policy" + i + ".mp3";
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
@@ -60,7 +60,7 @@ public class NewsController {
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
 
-                String path = "src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/economy/economy" + i + ".mp3";
+                String path = "src/main/resources/static/economy/economy" + i + ".mp3";
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
@@ -86,7 +86,7 @@ public class NewsController {
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
 
-                String path = "src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/social/social" + i + ".mp3";
+                String path = "src/main/resources/static/social/social" + i + ".mp3";
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
@@ -101,7 +101,7 @@ public class NewsController {
     }
 
     // 보여 주기 위한 함수. 15초에 한 번 씩 뉴스 음성 파일을 바꿔 줌
-    @Scheduled(cron = "*/15 * * * * *")
+    @Scheduled(cron = "*/30 * * * * *")
     public String worldNews(){
         System.out.println("크롤링 시작");
         String category = "section_world";
@@ -113,7 +113,7 @@ public class NewsController {
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
 
-                String path = "src/main/java/com/ssuOpensource/NewForBlind/voiceFiles/world/world" + i + ".mp3";
+                String path = "src/main/resources/static/world/world" + i + ".mp3";
 
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
