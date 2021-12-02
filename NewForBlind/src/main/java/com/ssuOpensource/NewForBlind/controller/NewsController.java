@@ -91,7 +91,10 @@ public class NewsController {
                         voiceNewsTopicWritings).makeTTS();
 
 
-                FileWriter jsonfile = new FileWriter()
+                FileWriter jsonfile = new FileWriter("src/main/resources/static/policy_json/policy-" + i);
+                jsonfile.write(braileNewsJSON.toJSONString());
+                jsonfile.flush();
+                jsonfile.close();
             }
         }
         catch(Exception e){
@@ -114,10 +117,43 @@ public class NewsController {
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
 
+
+                String NewsWritings = newsList.get(i).getWritings();
+                String url = newsList.get(i).getUrl();
+                HtoB htoB = new HtoB();
+                String jumjaNewsWritings = htoB.H2B(NewsWritings);
+
+                JSONObject header = new JSONObject();
+                JSONObject body = new JSONObject();
+                JSONObject braileNewsJSON = new JSONObject();
+
+                header.put("encoding", "UTF-8");
+                header.put("title", voiceNewsTopic);
+                header.put("topic", "policy");
+                header.put("date", today);
+                header.put("url", url);
+                header.put("crawling-function", crawling_function);
+                header.put("translate-rules", translate_rules);
+                header.put("translate-function", translate_function);
+
+                body.put("original-version", NewsWritings);
+                body.put("translated-version", jumjaNewsWritings);
+
+                braileNewsJSON.put("header", header);
+                braileNewsJSON.put("body", body);
+
+
+
                 String path = "src/main/resources/static/economy/economy" + i + ".mp3";
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
+
+
+                FileWriter jsonfile = new FileWriter("src/main/resources/static/economy_json/economy-" + i);
+                jsonfile.write(braileNewsJSON.toJSONString());
+                jsonfile.flush();
+                jsonfile.close();
             }
         }
         catch(Exception e){
@@ -140,11 +176,41 @@ public class NewsController {
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
 
+
+                String NewsWritings = newsList.get(i).getWritings();
+                String url = newsList.get(i).getUrl();
+                HtoB htoB = new HtoB();
+                String jumjaNewsWritings = htoB.H2B(NewsWritings);
+
+                JSONObject header = new JSONObject();
+                JSONObject body = new JSONObject();
+                JSONObject braileNewsJSON = new JSONObject();
+
+                header.put("encoding", "UTF-8");
+                header.put("title", voiceNewsTopic);
+                header.put("topic", "policy");
+                header.put("date", today);
+                header.put("url", url);
+                header.put("crawling-function", crawling_function);
+                header.put("translate-rules", translate_rules);
+                header.put("translate-function", translate_function);
+
+                body.put("original-version", NewsWritings);
+                body.put("translated-version", jumjaNewsWritings);
+
+                braileNewsJSON.put("header", header);
+                braileNewsJSON.put("body", body);
+
+
                 String path = "src/main/resources/static/social/social" + i + ".mp3";
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
 
+                FileWriter jsonfile = new FileWriter("src/main/resources/static/social_json/social-" + i);
+                jsonfile.write(braileNewsJSON.toJSONString());
+                jsonfile.flush();
+                jsonfile.close();
 
             }
         }
@@ -157,10 +223,9 @@ public class NewsController {
     }
 
     // 보여 주기 위한 함수. 15초에 한 번 씩 뉴스 음성 파일을 바꿔 줌
-//    @Scheduled(cron = "*/30 * * * * *")
+    @Scheduled(cron = "*/15 * * * * *")
     public String worldNews(){
 
-        JSONObject jsonfile = new JSONObject();
 
         System.out.println("크롤링 시작");
         String category = "section_world";
@@ -172,12 +237,42 @@ public class NewsController {
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
 
+
+                String NewsWritings = newsList.get(i).getWritings();
+                String url = newsList.get(i).getUrl();
+                HtoB htoB = new HtoB();
+                String jumjaNewsWritings = htoB.H2B(NewsWritings);
+
+                JSONObject header = new JSONObject();
+                JSONObject body = new JSONObject();
+                JSONObject braileNewsJSON = new JSONObject();
+
+                header.put("encoding", "UTF-8");
+                header.put("title", voiceNewsTopic);
+                header.put("topic", "policy");
+                header.put("date", today);
+                header.put("url", url);
+                header.put("crawling-function", crawling_function);
+                header.put("translate-rules", translate_rules);
+                header.put("translate-function", translate_function);
+
+                body.put("original-version", NewsWritings);
+                body.put("translated-version", jumjaNewsWritings);
+
+                braileNewsJSON.put("header", header);
+                braileNewsJSON.put("body", body);
+
+
                 String path = "src/main/resources/static/world/world" + i + ".mp3";
 
                 new makeSound("9ccdfcd870e24163a3478032a26e2087",
                         path,
                         voiceNewsTopicWritings).makeTTS();
 
+                FileWriter jsonfile = new FileWriter("src/main/resources/static/world_json/world-" + i);
+                jsonfile.write(braileNewsJSON.toJSONString());
+                jsonfile.flush();
+                jsonfile.close();
 
             }
         }
