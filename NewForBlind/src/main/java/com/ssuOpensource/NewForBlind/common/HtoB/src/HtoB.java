@@ -1,7 +1,9 @@
 package com.ssuOpensource.NewForBlind.common.HtoB.src;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Queue;
 import java.util.LinkedList;
 import java.lang.String;
@@ -37,8 +39,6 @@ public class HtoB {
             makeJJ(q, hash, bw);
 
             bw.flush();
-            bw.close();
-            fw.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
