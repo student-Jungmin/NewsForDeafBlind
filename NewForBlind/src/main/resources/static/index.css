@@ -5,7 +5,8 @@
 /*header 부분 css*/
 .top-navigator {
     display: flex;
-    width: 1520px;
+    width: 100%;
+    min-width: 1540px;
     position: fixed;
     background-color: var(--background-color);
     border-bottom: 1px;
@@ -51,6 +52,7 @@
     /* padding-top: 80px; */
     color: var(--font-color);
     margin-top: 150px;
+    border: 1px solid var(--font-color);
     background-color: var(--background-color);
 }
 

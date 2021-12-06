@@ -39,7 +39,7 @@ public class NewsController {
     private static final String translate_rules = "https://github.com/TwoJJung/NewsForDeafBlind/blob/master/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/Hash.java";
     private static final String translate_function = "https://github.com/TwoJJung/NewsForDeafBlind/blob/master/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/HtoB.java";
 
-    @Scheduled(cron = "*/15 * * * * *")
+//    @Scheduled(cron = "*/15 * * * * *")
 //    @Scheduled(cron = "0 0/59 * * * *")
     public String policyNews(){
         String category = "section_politics";
@@ -47,31 +47,15 @@ public class NewsController {
             LinkedList<News> newsList = NewsSearching.newsSearch2(category);
 
             for(int i=0; i<5; i++) {
-                /*
-                    encoding
-                    title
-                    topic
-                    date
-                    url
-                    crawling-function
-                    translate-rules
-                    translate-function
-                    ===
-                    original-version
-                    translated-version
-                    */
                 String voiceNewsTopic = newsList.get(i).getTopic().concat(". \n\n");
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
                 HtoB htoB = new HtoB();
-                System.out.println("1111111111");
-                String jumjaNewsWritings = htoB.H2B("안녕하세요");
-                System.out.println("333333333");
+                String jumjaNewsWritings = htoB.H2B(NewsWritings);
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
                 JSONObject braileNewsJSON = new JSONObject();
-                System.out.println("22222222");
                 header.put("encoding", "UTF-8");
                 header.put("title", voiceNewsTopic);
                 header.put("topic", "policy");
@@ -107,8 +91,8 @@ public class NewsController {
         return "index";
     }
 
-    @Scheduled(cron = "0 0/59 * * * *")
-//    @Scheduled(cron = "*/15 * * * * *")
+//    @Scheduled(cron = "0 0/59 * * * *")
+    @Scheduled(cron = "*/15 * * * * *")
     public String economicNews(){
 
         String category = "section_economy";
@@ -124,15 +108,23 @@ public class NewsController {
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
                 HtoB htoB = new HtoB();
-                String jumjaNewsWritings = htoB.H2B(NewsWritings);
+                System.out.println("뉴스 기사 본문" + i+ "번째 기사");
+                System.out.println("\n");
+                System.out.println(NewsWritings);
+                System.out.println("\n");
 
+
+                String jumjaNewsWritings = htoB.H2B(NewsWritings);
+                System.out.println(jumjaNewsWritings);
+                System.out.println("\n");
+                System.out.println("뉴스 기사 본문 끝"+ i + "번째 기사");
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
                 JSONObject braileNewsJSON = new JSONObject();
 
                 header.put("encoding", "UTF-8");
                 header.put("title", voiceNewsTopic);
-                header.put("topic", "policy");
+                header.put("topic", "economy");
                 header.put("date", today);
                 header.put("url", url);
                 header.put("crawling-function", crawling_function);
@@ -140,7 +132,7 @@ public class NewsController {
                 header.put("translate-function", translate_function);
 
                 body.put("original-version", NewsWritings);
-                body.put("translated-version", jumjaNewsWritings);
+                 body.put("translated-version", jumjaNewsWritings);
 
                 braileNewsJSON.put("header", header);
                 braileNewsJSON.put("body", body);
@@ -168,7 +160,7 @@ public class NewsController {
     }
 
 //    @Scheduled(cron = "0 0/59 * * * *")
-    @Scheduled(cron = "*/15 * * * * *")
+//    @Scheduled(cron = "*/15 * * * * *")
     public String socialNews(){
 
         String category = "section_society";
@@ -183,8 +175,10 @@ public class NewsController {
 
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
+
                 HtoB htoB = new HtoB();
-                String jumjaNewsWritings = htoB.H2B("뉴스 본문");
+                String jumjaNewsWritings = htoB.H2B(NewsWritings);
+
 
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
@@ -192,12 +186,12 @@ public class NewsController {
 
                 header.put("encoding", "UTF-8");
                 header.put("title", voiceNewsTopic);
-                header.put("topic", "policy");
+                header.put("topic", "social");
                 header.put("date", today);
                 header.put("url", url);
                 header.put("crawling-function", crawling_function);
                 header.put("translate-rules", translate_rules);
-                header.put("translate-function", translate_function);
+                // header.put("translate-function", translate_function);
 
                 body.put("original-version", NewsWritings);
                 body.put("translated-version", jumjaNewsWritings);
@@ -244,17 +238,17 @@ public class NewsController {
 
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
-                HtoB htoB = new HtoB();
-                System.out.println(NewsWritings);
-                // 여기 다음 에러임
-                String jumjaNewsWritings = htoB.H2B("안녕하세요");
+                 HtoB htoB = new HtoB();
+                 System.out.println(NewsWritings);
+                 // 여기 다음 에러임
+                 String jumjaNewsWritings = htoB.H2B(NewsWritings);
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
                 JSONObject braileNewsJSON = new JSONObject();
 
                 header.put("encoding", "UTF-8");
                 header.put("title", voiceNewsTopic);
-                header.put("topic", "policy");
+                header.put("topic", "world");
                 header.put("date", today);
                 header.put("url", url);
                 header.put("crawling-function", crawling_function);
