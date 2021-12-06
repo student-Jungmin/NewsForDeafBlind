@@ -104,6 +104,10 @@ public class HtoB {
                 return new Integer[]{65, 40, 40};
             case 54:
                 return new Integer[]{66, 40, 40};
+            case 58:
+                return new Integer[]{59, 40, 40};
+            case 60:
+                return new Integer[]{60, 40, 40};
         }
         return new Integer[]{40, 40, 40};
     }
