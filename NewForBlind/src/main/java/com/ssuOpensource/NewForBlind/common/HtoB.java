@@ -23,12 +23,13 @@ public class HtoB {
         HashMap<Integer, Integer> hash = new Hash().makeHash();
         Queue<Integer[]> q = new LinkedList<>();   //자모 분리한 한글을 큐에 저장함
 
+        System.out.println("4444444444444444444");
         for (int i = 0; i < input.length(); i++)
             q.offer(separation(input.charAt(i)));
 
         makeJJ(q, hash, output);
 
-
+        System.out.println("1111222222222222222222111\n\n");
         return output.toString();
     }
 

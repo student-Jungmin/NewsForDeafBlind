@@ -39,7 +39,8 @@ public class NewsController {
     private static final String translate_rules = "https://github.com/TwoJJung/NewsForDeafBlind/blob/master/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/Hash.java";
     private static final String translate_function = "https://github.com/TwoJJung/NewsForDeafBlind/blob/master/NewForBlind/src/main/java/com/ssuOpensource/NewForBlind/common/HtoB.java";
 
-    @Scheduled(cron = "0 0/59 * * * *")
+    @Scheduled(cron = "*/15 * * * * *")
+//    @Scheduled(cron = "0 0/59 * * * *")
     public String policyNews(){
         String category = "section_politics";
         try{
@@ -64,12 +65,13 @@ public class NewsController {
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
                 HtoB htoB = new HtoB();
-                String jumjaNewsWritings = htoB.H2B(NewsWritings);
-
+                System.out.println("1111111111");
+                String jumjaNewsWritings = htoB.H2B("안녕하세요");
+                System.out.println("333333333");
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
                 JSONObject braileNewsJSON = new JSONObject();
-
+                System.out.println("22222222");
                 header.put("encoding", "UTF-8");
                 header.put("title", voiceNewsTopic);
                 header.put("topic", "policy");
@@ -106,6 +108,7 @@ public class NewsController {
     }
 
     @Scheduled(cron = "0 0/59 * * * *")
+//    @Scheduled(cron = "*/15 * * * * *")
     public String economicNews(){
 
         String category = "section_economy";
@@ -164,7 +167,8 @@ public class NewsController {
         return "index";
     }
 
-    @Scheduled(cron = "0 0/59 * * * *")
+//    @Scheduled(cron = "0 0/59 * * * *")
+    @Scheduled(cron = "*/15 * * * * *")
     public String socialNews(){
 
         String category = "section_society";
@@ -180,7 +184,7 @@ public class NewsController {
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
                 HtoB htoB = new HtoB();
-                String jumjaNewsWritings = htoB.H2B(NewsWritings);
+                String jumjaNewsWritings = htoB.H2B("뉴스 본문");
 
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
@@ -223,7 +227,7 @@ public class NewsController {
     }
 
     // 보여 주기 위한 함수. 15초에 한 번 씩 뉴스 음성 파일을 바꿔 줌
-    @Scheduled(cron = "*/15 * * * * *")
+//    @Scheduled(cron = "*/15 * * * * *")
     public String worldNews(){
 
 
