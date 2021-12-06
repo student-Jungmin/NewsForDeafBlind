@@ -51,11 +51,24 @@ public class NewsController {
                 String voiceNewsTopicWritings = voiceNewsTopic.concat(newsList.get(i).getWritings());
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
+
                 HtoB htoB = new HtoB();
+                System.out.println("\n");
+                System.out.println("뉴스 기사 본문" + i+ "번째 기사");
+                System.out.println("\n");
+                System.out.println(NewsWritings);
+                System.out.println("\n");
+
+
                 String jumjaNewsWritings = htoB.H2B(NewsWritings);
+                System.out.println(jumjaNewsWritings);
+                System.out.println("\n");
+                System.out.println("뉴스 기사 본문 끝"+ i + "번째 기사");
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
                 JSONObject braileNewsJSON = new JSONObject();
+
+
                 header.put("encoding", "UTF-8");
                 header.put("title", voiceNewsTopic);
                 header.put("topic", "policy");
@@ -92,7 +105,7 @@ public class NewsController {
     }
 
 //    @Scheduled(cron = "0 0/59 * * * *")
-    @Scheduled(cron = "*/15 * * * * *")
+//    @Scheduled(cron = "*/15 * * * * *")
     public String economicNews(){
 
         String category = "section_economy";
@@ -108,6 +121,7 @@ public class NewsController {
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
                 HtoB htoB = new HtoB();
+                System.out.println("\n");
                 System.out.println("뉴스 기사 본문" + i+ "번째 기사");
                 System.out.println("\n");
                 System.out.println(NewsWritings);
@@ -177,9 +191,17 @@ public class NewsController {
                 String url = newsList.get(i).getUrl();
 
                 HtoB htoB = new HtoB();
+                System.out.println("\n");
+                System.out.println("뉴스 기사 본문" + i+ "번째 기사");
+                System.out.println("\n");
+                System.out.println(NewsWritings);
+                System.out.println("\n");
+
+
                 String jumjaNewsWritings = htoB.H2B(NewsWritings);
-
-
+                System.out.println(jumjaNewsWritings);
+                System.out.println("\n");
+                System.out.println("뉴스 기사 본문 끝"+ i + "번째 기사");
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
                 JSONObject braileNewsJSON = new JSONObject();
@@ -221,7 +243,8 @@ public class NewsController {
     }
 
     // 보여 주기 위한 함수. 15초에 한 번 씩 뉴스 음성 파일을 바꿔 줌
-//    @Scheduled(cron = "*/15 * * * * *")
+    //    @Scheduled(cron = "0 0/59 * * * *")
+    @Scheduled(cron = "*/15 * * * * *")
     public String worldNews(){
 
 
@@ -238,10 +261,18 @@ public class NewsController {
 
                 String NewsWritings = newsList.get(i).getWritings();
                 String url = newsList.get(i).getUrl();
-                 HtoB htoB = new HtoB();
-                 System.out.println(NewsWritings);
-                 // 여기 다음 에러임
-                 String jumjaNewsWritings = htoB.H2B(NewsWritings);
+                HtoB htoB = new HtoB();
+                System.out.println("\n");
+                System.out.println("뉴스 기사 본문" + i+ "번째 기사");
+                System.out.println("\n");
+                System.out.println(NewsWritings);
+                System.out.println("\n");
+
+
+                String jumjaNewsWritings = htoB.H2B(NewsWritings);
+                System.out.println(jumjaNewsWritings);
+                System.out.println("\n");
+                System.out.println("뉴스 기사 본문 끝"+ i + "번째 기사");
                 JSONObject header = new JSONObject();
                 JSONObject body = new JSONObject();
                 JSONObject braileNewsJSON = new JSONObject();
