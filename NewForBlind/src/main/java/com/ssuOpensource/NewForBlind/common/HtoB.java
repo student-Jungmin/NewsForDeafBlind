@@ -103,6 +103,10 @@ public class HtoB {
                 return new Integer[]{65, 40, 40};
             case 54:
                 return new Integer[]{66, 40, 40};
+            case 58:
+                return new Integer[]{59, 40, 40};
+            case 60:
+                return new Integer[]{60, 40, 40};
         }
         return new Integer[]{40, 40, 40};
     }
@@ -114,10 +118,8 @@ public class HtoB {
         try {
             while (value != null) {
                 for (i = 0; i < 3; i++) {
-                    j = 0x2800 + hash.get(value[i]);
-                    if (j == 0x2800)
-                        j = 0x200B;
-                    output.append((char) j);
+                    if ((j = 0x2800 + hash.get(value[i])) != 0x2800)
+                        output.append((char) j);
                 }
                 value = q.poll();
             }

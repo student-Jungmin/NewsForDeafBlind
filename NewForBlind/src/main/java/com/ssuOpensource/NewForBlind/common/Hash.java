@@ -62,7 +62,9 @@ public class Hash {
         map.put(55, 2);         //ㅀ
         map.put(56, 34);    //ㅁ
         map.put(57, 3);     //ㅂ
+        map.put(58, 3);
         map.put(59, 4);     //ㅅ
+        map.put(60, 4);
         map.put(61, 54);    //ㅇ
         map.put(62, 5);     //ㅈ
         map.put(63, 6);     //ㅊ
