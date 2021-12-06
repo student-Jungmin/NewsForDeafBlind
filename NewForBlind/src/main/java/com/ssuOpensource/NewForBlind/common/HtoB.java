@@ -119,10 +119,8 @@ public class HtoB {
         try {
             while (value != null) {
                 for (i = 0; i < 3; i++) {
-                    j = 0x2800 + hash.get(value[i]);
-                    if (j == 0x2800)
-                        j = 0x200B;
-                    output.append((char) j);
+                    if ((j = 0x2800 + hash.get(value[i])) != 0x2800)
+                        output.append((char) j);
                 }
                 value = q.poll();
             }
