@@ -90,7 +90,7 @@ public class NewsController {
                         voiceNewsTopicWritings).makeTTS();
 
 
-                FileWriter jsonfile = new FileWriter("src/main/resources/static/policy_json/policy-" + i+ ".json");
+                FileWriter jsonfile = new FileWriter("src/main/resources/static/policy_json/policy-" + i);
                 jsonfile.write(braileNewsJSON.toJSONString());
                 jsonfile.flush();
                 jsonfile.close();
@@ -159,7 +159,7 @@ public class NewsController {
                         voiceNewsTopicWritings).makeTTS();
 
 
-                FileWriter jsonfile = new FileWriter("src/main/resources/static/economy_json/economy-" + i + ".json");
+                FileWriter jsonfile = new FileWriter("src/main/resources/static/economy_json/economy-" + i);
                 jsonfile.write(braileNewsJSON.toJSONString());
                 jsonfile.flush();
                 jsonfile.close();
@@ -227,7 +227,7 @@ public class NewsController {
                         path,
                         voiceNewsTopicWritings).makeTTS();
 
-                FileWriter jsonfile = new FileWriter("src/main/resources/static/social_json/social-" + i + ".json");
+                FileWriter jsonfile = new FileWriter("src/main/resources/static/social_json/social-" + i);
                 jsonfile.write(braileNewsJSON.toJSONString());
                 jsonfile.flush();
                 jsonfile.close();
@@ -298,7 +298,7 @@ public class NewsController {
                         path,
                         voiceNewsTopicWritings).makeTTS();
 
-                String jsonPath = "src/main/resources/static/world_json/world-" + i+ ".json";
+                String jsonPath = "src/main/resources/static/world_json/world-" + i;
                 FileWriter jsonfile = new FileWriter(jsonPath);
                 jsonfile.write(braileNewsJSON.toJSONString());
                 jsonfile.flush();
